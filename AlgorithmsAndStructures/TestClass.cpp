@@ -31,7 +31,6 @@ void TestClass::TestSortAlgorthms()
         TestSomeEqualNumberArray(s);
         TestNegativeArray(s);
         cout << "----- " << s->GetAlgorithmName() << " Finished -----" << endl;
-
     }
 
     cout << "TESTING SORT ALGORITHMS FINISHED!!!" << endl;
