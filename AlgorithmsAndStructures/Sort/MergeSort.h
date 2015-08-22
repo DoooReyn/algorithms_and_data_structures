@@ -11,6 +11,9 @@ public:
 
     void Sort(vector<int> &pList);
     string GetAlgorithmName() { return "Merge Sort"; }
+private:
+    vector<int> mergeSort(vector<int> &v);
+    std::vector<int> merge(vector<int> &left, vector<int> &right);
 };
 
 #endif // MERGESORT_H

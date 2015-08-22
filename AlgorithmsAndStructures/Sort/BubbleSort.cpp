@@ -18,8 +18,10 @@ BubbleSort::~BubbleSort() {
 
 void BubbleSort::Sort(std::vector<int> &pList)
 {
+    if(pList.size() == 0)
+        return;
+
 	size_t lastIdx = pList.size() - 1;
-	size_t firstIdx = 0;
 	bool isOrdered = true;
 
 	do
@@ -27,7 +29,7 @@ void BubbleSort::Sort(std::vector<int> &pList)
 		//starts odered to skip if there is no swap.
 		isOrdered = true;
 
-		for (int i = firstIdx; i <= lastIdx - 1; ++i)
+        for (size_t i = 0; i <= lastIdx - 1; ++i)
 		{
 			if (pList[i] > pList[i + 1])
 			{
@@ -36,9 +38,9 @@ void BubbleSort::Sort(std::vector<int> &pList)
 			}
 		}
 
-		//Lest index is already ordered
+        //Last index is already ordered
 		--lastIdx;
 
-	} while (!isOrdered);
+    } while (!isOrdered && lastIdx > 0);
 }
 

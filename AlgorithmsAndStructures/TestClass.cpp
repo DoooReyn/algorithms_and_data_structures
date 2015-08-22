@@ -4,6 +4,9 @@ TestClass::TestClass()
 {
     m_vecAlg.push_back(new SelectionSort());
     m_vecAlg.push_back(new InsertionSort());
+    m_vecAlg.push_back(new BubbleSort());
+    m_vecAlg.push_back(new QuickSort());
+    m_vecAlg.push_back(new MergeSort());
     m_fPrint = [] (int &x) {cout << x << " ";};
 }
 

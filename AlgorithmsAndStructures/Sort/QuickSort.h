@@ -11,6 +11,10 @@ public:
 
     void Sort(vector<int> &pList);
     string GetAlgorithmName() { return "Quick Sort"; }
+
+private:
+    void quickSort(vector<int> &pList, int first, int last);
+    size_t findElementPosition(vector<int> &pList, int first, int last);
 };
 
 #endif // QUICKSORT_H

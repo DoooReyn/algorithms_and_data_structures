@@ -6,6 +6,9 @@
 
 #include "Sort/SelectionSort.h"
 #include "Sort/InsertionSort.h"
+#include "Sort/BubbleSort.h"
+#include "Sort/QuickSort.h"
+#include "Sort/MergeSort.h"
 
 using namespace std;
 
