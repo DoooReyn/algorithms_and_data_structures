@@ -12,20 +12,14 @@ MergeSort::~MergeSort()
 
 void MergeSort::Sort(vector<int> &pList)
 {
-    vector<int> v = mergeSort(pList);
-    pList.clear();
-
-    for(auto el : v)
-    {
-        pList.push_back(el);
-    }
+    mergeSort(pList);
 }
 
-vector<int> MergeSort::mergeSort(vector<int> &v)
+void MergeSort::mergeSort(vector<int> &v)
 {
     if(v.size() <= 1)
     {
-        return v;
+        return;
     }
 
     size_t mid = (v.size()) / 2;
@@ -33,10 +27,9 @@ vector<int> MergeSort::mergeSort(vector<int> &v)
     std::vector<int> left(v.begin(), v.begin() + mid);
     std::vector<int> right(v.begin() + mid, v.end());
 
-    left = mergeSort(left);
-    right = mergeSort(right);
-    vector<int> res = merge(left, right);
-    return res;
+    mergeSort(left);
+    mergeSort(right);
+    v = merge(left, right);
 }
 
 std::vector<int> MergeSort::merge(vector<int> &left, vector<int> &right)
