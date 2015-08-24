@@ -9,6 +9,8 @@
 #include "Sort/BubbleSort.h"
 #include "Sort/QuickSort.h"
 #include "Sort/MergeSort.h"
+#include "Search/LinearSearch.h"
+#include "Search/BinarySearch.h"
 
 using namespace std;
 
@@ -18,10 +20,12 @@ public:
     TestClass();
     ~TestClass();
 
-    void TestSortAlgorthms();
+    void TestSortAlgorithms();
+    void TestSearchAlgorithms();
 
 private:
-    vector<ISort*> m_vecAlg;
+    vector<ISort*> m_vecSortAlg;
+    vector<ISearch*> m_vecSearchAlg;
     function<void(int&)> m_fPrint;
 
 

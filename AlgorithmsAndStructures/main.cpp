@@ -4,7 +4,9 @@
 int main()
 {
     TestClass test;
-    test.TestSortAlgorthms();
+    //test.TestSortAlgorithms();
+
+    test.TestSearchAlgorithms();
 
     return 0;
 }

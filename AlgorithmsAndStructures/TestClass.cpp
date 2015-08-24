@@ -2,28 +2,37 @@
 
 TestClass::TestClass()
 {
-    m_vecAlg.push_back(new SelectionSort());
-    m_vecAlg.push_back(new InsertionSort());
-    m_vecAlg.push_back(new BubbleSort());
-    m_vecAlg.push_back(new QuickSort());
-    m_vecAlg.push_back(new MergeSort());
+    m_vecSortAlg.push_back(new SelectionSort());
+    m_vecSortAlg.push_back(new InsertionSort());
+    m_vecSortAlg.push_back(new BubbleSort());
+    m_vecSortAlg.push_back(new QuickSort());
+    m_vecSortAlg.push_back(new MergeSort());
+
+    m_vecSearchAlg.push_back(new LinearSearch());
+    m_vecSearchAlg.push_back(new BinarySearch());
+
     m_fPrint = [] (int &x) {cout << x << " ";};
 }
 
 TestClass::~TestClass()
 {
-    for(auto s : m_vecAlg)
+    for(auto s : m_vecSortAlg)
+    {
+        delete s;
+    }
+
+    for(auto s : m_vecSearchAlg)
     {
         delete s;
     }
 }
 
-void TestClass::TestSortAlgorthms()
+void TestClass::TestSortAlgorithms()
 {
     cout << "TESTING SORT ALGORITHMS..." << endl;
 
     //Testing all algorithms
-    for(auto s : m_vecAlg)
+    for(auto s : m_vecSortAlg)
     {
         cout << endl;
         cout << "----- " << s->GetAlgorithmName() << " -----" << endl;
@@ -38,6 +47,38 @@ void TestClass::TestSortAlgorthms()
     }
 
     cout << "TESTING SORT ALGORITHMS FINISHED!!!" << endl;
+}
+
+void TestClass::TestSearchAlgorithms()
+{
+    cout << "TESTING SEARCH ALGORITHMS..." << endl;
+
+    //Testing all algorithms
+    for(auto s : m_vecSearchAlg)
+    {
+        cout << endl;
+        cout << "----- " << s->GetSearchName() << " -----" << endl;
+        std::vector<int> v = {1, 5, 9, 14, 54, 2, -2, 48, 72, 3};
+        size_t pos = 0;
+        size_t expectedResult = 0;
+        if(s->GetSearchName().compare("Binary Search") == 0)
+        {
+            QuickSort sort;
+            sort.Sort(v);
+            expectedResult = 6;
+            pos = s->Search(v, 14);
+        }
+        else
+        {
+            expectedResult = 3;
+            pos = s->Search(v, 14);
+        }
+        cout << "Search should return " << expectedResult
+             << " and returned " << pos << "." << endl;
+        cout << "----- " << s->GetSearchName() << " Finished -----" << endl;
+    }
+
+    cout << "TESTING SEARCH ALGORITHMS FINISHED!!!" << endl;
 }
 
 
